@@ -1,21 +1,39 @@
-import React from 'react';
+import React from "react";
 
 const ProductCard = ({ product }) => {
+  const { image, name, brand, currentPrice, originalPrice, discountPercent } =
+    product;
+
   return (
-    <div className="w-[90%] max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden p-4">
-      <img src={product.imageUrl} alt={product.name} className="rounded-xl object-cover h-64 w-full" />
-      <div className="mt-4">
-        <h3 className="text-lg font-bold capitalize">{product.name}</h3>
-        <p className="text-sm text-gray-600 mb-1">{product.brand}</p>
-        <div className="flex items-center space-x-2">
-          <span className="text-xl font-semibold text-pink-600">₹{product.price}</span>
-          {product.discountPercentage > 0 && (
-            <>
-              <span className="text-gray-400 line-through text-sm">₹{product.originalPrice}</span>
-              <span className="text-green-600 text-sm">{product.discountPercentage}% off</span>
-            </>
-          )}
-        </div>
+    <div className="w-72 max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden p-4 flex flex-col gap-3">
+      {/* Product Image */}
+      <div className="w-full h-full bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
+        <img src={image} alt={name} className="object-fit h-full w-full" />
+      </div>
+
+      {/* Product Info */}
+      <div className="flex flex-col gap-1">
+        <h2 className="text-lg font-semibold text-gray-800 line-clamp-2">
+          {name}
+        </h2>
+        <p className="text-sm text-gray-500">{brand}</p>
+      </div>
+
+      {/* Price Section */}
+      <div className="flex items-center gap-2">
+        <span className="text-lg font-bold text-green-600">
+          ₹{currentPrice}
+        </span>
+        {originalPrice && (
+          <span className="text-sm text-gray-400 line-through">
+            ₹{originalPrice}
+          </span>
+        )}
+        {discountPercent && (
+          <span className="text-sm text-red-500 font-medium">
+            {discountPercent}% off
+          </span>
+        )}
       </div>
     </div>
   );
