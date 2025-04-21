@@ -13,8 +13,10 @@ const SwipeableCard = ({ product, onSwipe, isTop }) => {
 
   useEffect(() => {
     if (!swipeDirection) return;
-
-    // Animate the card off-screen
+  
+    // Dismiss existing toasts before showing a new one
+    toast.dismiss();
+  
     const controls = {
       right: () => {
         animate(x, 1000, { duration: 0.5 });
@@ -35,13 +37,13 @@ const SwipeableCard = ({ product, onSwipe, isTop }) => {
         console.log(`Add to cart Product ID: ${product.id}`);
       },
     };
-
+  
     controls[swipeDirection]();
-
+  
     const timeout = setTimeout(() => {
       onSwipe(swipeDirection, product);
     }, 500);
-
+  
     return () => clearTimeout(timeout);
   }, [swipeDirection]);
 
