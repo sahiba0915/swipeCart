@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
         <h2 className="text-lg font-semibold text-gray-800 line-clamp-2">
           {capitalizeFirstLetters(name)}
         </h2>
-        <p className="text-sm text-gray-500">{brand}</p>
+        <p className="text-sm text-gray-500">{capitalizeFirstLetters(brand)}</p>
       </div>
 
       {/* Price Section */}

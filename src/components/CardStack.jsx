@@ -65,7 +65,7 @@ const products = [
     "id": 7,
     "name": "cloudy grey women's denim jacket",
     "brand": "freakins",
-    "curretPrice": 4500,
+    "currentPrice": 4500,
     "originalPrice": 6000,
     "discountPercent": 25,
     "image": "https://cdn.shopify.com/s/files/1/0028/9806/7554/files/MadhuraJUry8167_03d9208c-eb7d-4952-98cf-25c972fcfe21.jpg?v=1732535428"
